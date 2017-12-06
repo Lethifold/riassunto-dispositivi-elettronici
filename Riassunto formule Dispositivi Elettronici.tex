@@ -1,0 +1,390 @@
+\documentclass[12pt,a4paper]{article}
+
+%Pacchetti
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{verbatim}
+\usepackage{helvet}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage[left=1.00cm, right=1.00cm, top=2.00cm, bottom=2.00cm]{geometry}
+
+
+
+\newcommand{\pdv}[3]{\frac{\partial^{#2} #1}{\partial #3^{#2}}}
+\newcommand{\barSi}{\Big\lvert_{ \overset{Si}{T=300K}}}
+\newcommand{\Tau}{ \mathlarger{\mathlarger{ \tau }}}
+\newcommand{\Beps}{ \mathlarger{\mathlarger{ \varepsilon }}}
+\newcommand{\msmall}{\scriptscriptstyle}
+\newcommand{\ffrac}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+\newcommand{\eqlist}[4]{ 
+	\subsubsection*{#1}
+	\parbox{19cm}{#2}
+	
+	\begin{equation}
+	#3
+	\end{equation}
+	\noindent\parbox{19cm}{#4}}
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+\newcommand{\deqlist}[5]{
+	\subsubsection*{#1}
+	
+	\parbox{19cm}{#2}
+	
+	\noindent\begin{tabularx}{\textwidth}{@{}XXX@{}}
+	\begin{equation}
+	#3
+	\end{equation}  & 
+	\begin{equation}
+	#4
+	\end{equation}
+	
+	\end{tabularx}
+	
+	\noindent\parbox{19cm}{#5}}
+
+
+
+\author{Fabio Baldo}
+\title{Formule Dispositivi Elettronici}
+
+
+\begin{document}
+
+
+	\section{Formule in ordine cronologico}	
+	\subsection{Equazioni per condizioni all'equilibrio}
+	
+		\eqlist{Densità degli stati in Banda di Conduzione}
+		{}
+		{N_{BC}(E)=\frac{4\pi}{h^{3}} \, (2m^{*}_{n})^{\frac{3}{2}} \; E^{\frac{1}{2}}}
+		{h = $ 6.626 \times 10^{-34} Js $ (costante di Planck) \\ $2m^{*}_{n}$ = Massa efficace degli elettroni}
+		
+
+		\eqlist{Distribuzioni di Fermi-Dirac}
+		{}
+		{f(E)= \frac{1}{1 + e^{{\frac{E-E_{f}}{KT}}}}}
+		{$E_{f}$ = Energia di Fermi
+		K = Costante di Boltzmann}
+			
+
+		\eqlist{Densità elettronica}
+		{}
+		{\rho_{n}(E) = N_{BC} \, f(E)}
+		{}
+		
+		
+		\deqlist {Concentrazione elettronica in banda di conduzione}
+		{Integrando la densità elettronica, ovvero la moltiplicazione tra (1) e (2)  nell'intervallo $[0,+\infty]$ trovo}
+		{ n = N_{C} \; e^{-\frac{Ec-Ef}{KT}}}
+		{ p = N_{B} \;e^{-\frac{Ef-Ev}{KT}}}
+		{$ N_{C}=N_{V} = \frac{2}{h^{3}}(2 \pi m_{n}^{*}KT)^{\frac{3}{2}} =$ Densità efficace degli stati in Banda di Conduzione o Valenza}
+		
+		
+		\eqlist{Concentrazioni di elettroni e lacune in un semiconduttore puro}
+		{Essendo che nei semiconduttori intrinseci $ p=n=p_{i}=n_{i} $}
+		{n_{i}^{2}(T) = N_{C}N_{V} \; e^{-\frac{E_{g}}{KT}}}
+		{}
+		
+		
+		\deqlist{Legge dell'azione di massa}
+		{Moltiplicando le concentrazioni di elettroni e lacune in un semiconduttore drogato con atomi accettori o donatori si ottiene}
+		{n_{n0} \, p_{n0}=n_{i0}^{2}}
+		{n_{p0} \, p_{p0}=n_{i0}^{2}}
+		{}		
+		
+		
+		\deqlist{Equazione di Neutralità}
+		{@Equilibrio}
+		{\begin{split}
+				\rho_{n}(x) = +q(p_{n}-n_{n} + N_{D}^{+}) \\ \text{Semiconduttore drogato di tipo n}
+		\end{split}}
+		{\begin{split}
+				\rho_{p}(x) = +q(p_{p}-n_{p} - N_{A}^{-}) \\ \text{Semiconduttore drogato di tipo p}
+			\end{split}}
+ 		{Nel caso di neutralità elettrica $ \rho (x) = 0 $}
+		
+	
+		\deqlist{Concentrazione elettronica nei semiconduttori drogati}
+		{Dalle equazioni dell'azione di massa e di neutralità è possibile ottenere}
+		{n_{n0} = \frac{N_{D}^{+}(T)}{2}\Bigg[\sqrt{1+(\frac{2n_{i}(T)}{N_{D}^{+}(T)})^{2}}+1\Bigg]}
+		{p_{p0} = \frac{N_{D}^{-}(T)}{2}\Bigg[\sqrt{1+(\frac{2n_{i}(T)}{N_{A}^{-}(T)})^{2}}+1\Bigg]}
+		{}
+		
+		
+		\deqlist{Compensazione dei droganti}
+		{Utilizzando il legame tra il drogaggio effettivo e le concentrazioni di ioni  Riscrivo le equazioni delle concentrazioni di lacune ed elettroni per semiconduttori drogati inserendo la relazione $ N'=|N_{D}-N_{A}| $}
+		{n_{n0} = \frac{N_{D}'(T)}{2}\Bigg[\sqrt{1+(\frac{2n_{i}(T)}{N_{A}'(T)})^{2}}+1\Bigg]}
+		{p_{p0} = \frac{N_{A}'(T)}{2}\Bigg[\sqrt{1+(\frac{2n_{i}(T)}{N_{A}'(T)})^{2}}+1\Bigg]}
+		{}
+		
+		
+		\deqlist{Equazioni di Shockley}
+		{Queste equazioni simmetriche permettono di ricavare il lavoro di estrazione $ q \Phi Sn $ senza dover ricorrere all'ausilio delle formule in cui sono presenti $N_{C} \; e \; N_{V}$}
+		{n=n_{i} \, e^{\frac{E_{F}-E_{fi}}{KT}}}
+		{p=n_{i} \, e^{-\frac{E_{F}-E_{fi}}{KT}}}
+		{$ n_{i} \barSi $ \\  \\ $ E_{fi} $ = Livello di fermi per semiconduttori intrinseci}
+
+
+	\subsection{Equazioni per condizioni fuori dall'equilibrio}
+		
+		Per condizioni  che portano il semiconduttore al di fuori dell'equilibrio si intende una condizione in cui sia applicata al materiale una differenza di potenziale
+		
+		\deqlist{Correnti di trascinamento (\textit{Drift current})}
+		{Nel caso agli estremi del semiconduttore sia applicata una differenza di potenziale, gli elettroni e le lacune si muovono con stessa direzione, ma in verso opposto. Gli $ e^{-} $ si muovono in senso contrario rispetto al verso del campo elettrico $ \Beps $}
+		{-q \, \Phi^{e^{-}drift}_{xBC} = J_{n}^{drift} }
+		{q \, \Phi^{e^{+}drift}_{xBV} = J_{p}^{drift} }
+		{Per $ J_{n}^{drift} \; \text{e} \; J_{p}^{drift} $ si intendono le densità di corrente di drift, ovvero $ J=nq \, \overline{v}_{drift} $ \\ Per  $\Phi^{e^{-} \; drift}_{xBC}$  e $\Phi^{e^{+} \; drift}_{xBV} $ sono rispettivamente la \textbf{densità di flusso} degli $ e^{- }$ in BC e  la \textbf{densità di flusso} degli $e^{+}$ in BV, entrambi in funzione di x}
+		
+		\deqlist{}
+		{Possiamo sostituire nella formula generale la densità elettronica e la densità di lacune. }
+		{ \Phi^{e^{-}drift}_{xBC} = n_{n} \; \overline{v} \; _{n  BC}^{drift}}
+		{ \Phi^{e^{+}drift}_{xBV} = p_{p} \; \overline{v} \; _{p  BV}^{drift}}
+		{}
+		
+		\eqlist{}
+		{Definendo $ \overline\Tau_{n} $ il tempo medio tra due "urti" di un elettrone con impurità del cristallino, droganti o nuclei atomici si può ricavare la relazione seguente }
+		{\overline\Tau_{n} = \frac{\lambda}{{v}_{th}}}
+		{Se si ammettono le ipotesi in cui $ \lambda $, T, $ v_{th} $ sono costanti e che $ \overline{v} \;_{n}^{drift} << v_{th}$, allora si può considerare $\Tau_{n}$ all'incirca invariato anche in condizioni di non equilibrio. }
+		
+		\deqlist{Velocità di trascinamento \textit{(Velocità di drift)}}
+		{Passando per il teoreme dell'impulso è possibile arrivare a ricavare, a meno di una costante propia del semiconduttore, la velocità di trascinamento degli elettroni.}
+		{\overline{v} \;_{n}^{drift} = \frac{-q \Tau}{m_{n}^{*}}\Beps = -\mu_{n} \;\Beps}
+		{\overline{v} \;_{p}^{drift} = \frac{q  \Tau}{m_{p}^{*}}\Beps = \mu_{p} \; \Beps}
+		{Con $ \mu_{n} = \frac{q \Tau}{m_{n}^{*}} $ e $ \mu_{p} = \frac{q \Tau}{m_{n}^{*}} $}
+		
+		\deqlist{Conducibilità e Restività}
+		{Le formule (17) e (18) possono essere riscritte ottenendo}
+		{J_{n}^{drift}  =  (qn \mu_{n}) \, \Beps = \Beps \sigma_{n} }
+		{J_{p}^{drift} = (qn \mu_{p}) \, \Beps =\Beps \sigma_{p}}
+		{Ricordo che la densità di corrente totale la somma algebrica delle due densità di corrente elettronica e delle lacune.}
+		
+		\eqlist{}
+		{Quindi raccolgo a fattor comune la carica e il campo elettrico si ottiene la formula:}
+		{J_{tot} = \Beps(q\mu_{n}n + q\mu_{p}p) = \sigma \Beps}
+		{in cui $ (q\mu_{n}n + q\mu_{p}p) $ è la conducibilità $ \sigma $ propria del materiale}
+		
+		\eqlist{Resistenza di un semiconduttore }
+		{Utilizzando la legge di Ohm microscopica si può ricavare la seguente relazione}
+		{R = \frac{1}{\sigma_{i}} \frac{L}{A}}
+		{}
+		
+		\eqlist{Conducibilità nel caso di un semiconduttore drogato}
+		{Sia che si droghi il semiconduttore con atomi accettori che con atomi donatori, si giunge a ragionamenti analoghi. Infatti, data una concentrazione $N_{D}$ di droganti donatori, in condizioni estrinseche, le concentrazioni $n_{n0} \approx N_{D} $, quindi posso trascurare il contributo alla resistenza equivalente dato dalla resistività delle lacune (popolazione minoritaria). \\ \\ }
+		{R_{EQ} \approx \frac{1}{\sigma_{drog}} \frac{L}{A} \approx \frac{1}{q \mu_{n} N_{D}} \frac{L}{A}}
+		{}
+		
+		
+		\eqlist{Relazioni di Einstein}
+		{}
+		{\begin{cases}
+				D_{n} = V_{T } \mu_{n} \\ D_{p} = V_{T} \mu_{p} 
+			\end{cases} \\}
+		{Nelle relazioni $ V_{T} = \frac{K T}{q} = 26 mV$ è definita Tensione equivalente della temperatura }
+		
+		\deqlist{Densità di corrente di diffusione}
+		{Si possono riscrivere le densitaà di corrente anche per la diffusione.}
+		{J_{n}^{diff} = -q \Phi^{e^{-}diff}_{xBC} = q D_{n} \frac{\partial n}{\partial x}}
+		{J_{p}^{diff} = q \Phi^{e^{+}diff}_{xBV} = -q D_{p} \frac{\partial p}{\partial x}}
+		{}
+		
+		
+		\deqlist{Correnti di diffusione}
+		{Nel caso in cui il drogaggio non sia omogeneo, all'interno del semiconduttore si creerà un gradiente di concentrazione negativo. Infatti, gli elettroni tenderanno a distribuirsi uniformemente nel cristallo generando così una corrente detta di diffusione.}
+		{\Phi^{e^{-}diff}_{xBC} = - D_{n} \frac{\partial n}{\partial x}}
+		{\Phi^{e^{+}diff}_{xBV} = - D_{p} \frac{\partial p}{\partial x}}
+		{Con $ D_{n} \text{e}\; D_{p} $ le costanti di diffusione per gli elettroni e per le lacune}
+		
+	
+		
+		\deqlist{Equazioni di \textbf{\textit{Drift-Diffiusion}}}
+		{Cercando di riprodurre con un modello matematico fedele alla realtà il comportamento degli elettroni e delle lacune nei semiconduttori, è necessario tenere conto sia della densità di corrente di drift che di diffusione}
+		{J_{n} = J_{n}^{drift} + J_{n}^{driff} = (q \, \Beps \, \mu_{n} n )+\bigg( q D_{n} \frac{\partial n}{\partial x} \bigg)}
+		{J_{p} = J_{p}^{drift} + J_{p}^{driff} = (q \, \Beps \, \mu_{p} p )-\bigg( q D_{p} \frac{\partial p}{\partial x} \bigg)}
+		{}
+		
+		
+		\subsubsection*{Equazioni di continuità}
+		Come nel caso dei fluidi è possibile definire un'equazione di continuità in cui si analizzano le "entrate" e le "uscite" da un immaginario cubo all'interno del semiconduttore
+		\begin{equation}
+			\pdv{n(x,t)}{2}{t} \, Adx = \frac{Jn(x)A}{-q} - \frac{Jn(x+dx)A}{-q} + G_{TH}Adx + RAdx
+		\end{equation}
+		\begin{equation}
+			\pdv{p(x,t)}{2}{t} \, Adx = \frac{Jp(x)A}{-q} - \frac{Jp(x+dx)A}{-q} + G_{TH}Adx + RAdx
+		\end{equation}
+		In cui $ \frac{Jn(x)A}{-q} $ è il numero di elettroni entranti e  $ \frac{Jn(x + dx)A}{-q} $ è il numero di elettroni uscenti dalla superficie A
+		
+		\deqlist{Tasso netto di ricombinazione}
+		{Definisco per comodità le seguenti quantità}
+		{U_{n} = R-G_{TH}}
+		{U_{p} = R-G_{TH}}
+		{Questa notazione permette di semplificare notevolmente le equazioni di continuità, rendendole più compatte \\ @Equilibrio $ U_{n} = U_{p}=0 $}
+		
+		\deqlist{Concentrazioni in eccesso}
+		{Per comodità è utile definire le concentrazioni in eccesso -fuori equilibrio- di elettroni e di lacune}
+		{\begin{split}
+			n_{n}' = n_{n} - n_{n0} 
+			\\ n_{p}' = n_{p} - n_{p0}
+			\end{split}
+		}
+		{\begin{split}
+			p_{n}' = p_{n} - p_{n0} 
+			\\ p_{p}' = p_{p} - p_{p0}
+			\end{split}
+		}
+	
+		\deqlist{Ricombinazione}
+		{Essendo la ricombinazione un fenomeno che interessa sia gli elettroni che le lacune, è ovvio considerare la ricombinazione proporzionale alle concentrazioni di elettroni e di lacune. \\ \\ @Equilibrio}
+		{R_{0} = \alpha n_{n0} p_{n0}}
+		{R = \alpha n_{n} p_{n}}
+		{Combinando l'equazione (42) e la (44) ottengo \[ R = \alpha n_{n} (p_{n}-p_{n0}) \]}
+		
+		
+		\deqlist{Tempo di vita media}
+		{Si può definire il tempo di vita medio che trascorre tra la generazione della lacuna (o elettrone) e la sua ricombinazione con un elettrone (o lacuna)}
+		{\Tau_{n} = \frac{1}{\alpha n_{n0}}}
+		{\Tau_{p} = \frac{1}{\alpha p_{p0}}}
+		{}
+		
+		
+		\deqlist{Tasso netto di ricombinazione ricombinazione}
+		{Unendo le notazioni delle concentrazioni in eccesso e la relazione della ricombinazione con il tempo di vita medio, le formule (39) e (40) possono essere riscritte}
+		{ U_{p} = \frac{p_{n}'}{\Tau_{p}} }
+		{ U_{n} = \frac{n_{n}'}{\Tau_{n}} }
+		{}
+		
+		
+	\subsection{Modello Matematico}		
+		Facendo "interagire" tra loro le equazioni di continuità (38) (39), le equazioni del tasso netto di ricombinazione si può ottenere un modello matematico che ci permetta di studiare il comportamento dei semiconduttori. 
+		
+		\deqlist{Equazioni di continuità riscritte}
+		{Sviluppando in serie di Taylor il secondo termine, ovvero quello riguardante la quantità di elettroni/lacune in uscita dal volume infinitesimo e sostituisco $ R \; \text{e} \; G_{TH}$}
+		{\pdv{n(x,t)}{2}{t} = \frac{1}{q} \pdv{J_{n}}{2}{x} - U_{n}}
+		{\pdv{p(x,t)}{2}{t} = - \frac{1}{q} \pdv{J_{p}}{2}{x} - U_{p}}
+		{Questa rappresenta la prima delle equazioni che permettono di rendere matematicamente il comportamento di elettroni e lacune nei semiconduttori, sia drogati che non.} 
+		
+		
+		\subsubsection*{Equazioni di continuità per i portatori minoritari}
+		{In condizioni di basso livello di iniezione, le concentrazioni dei portatori minoritari sono date dalle relazioni seguenti }
+		\begin{equation}
+		\pdv{n_{p}(x,t)}{2}{t} = n_{p} \mu_{n}  \pdv{\Beps}{2}{x} + \mu_{n} \Beps \pdv{n_{p}}{2}{x} + D_{n} \pdv{n_{p}}{2}{x} + G_{n} -\frac{n_{p}'}{\Tau_{n}}
+		\end{equation}
+		\begin{equation}
+		\pdv{p_{n}(x,t)}{2}{t} = p_{n} \mu_{p}  \pdv{\Beps}{2}{x} + \mu_{p} \Beps \pdv{p_{n}}{2}{x} + D_{p} \pdv{p_{n}}{2}{x} + G_{p} -\frac{p_{n}'}{\Tau_{p}}
+		\end{equation}
+		
+		
+		
+		
+		\eqlist{Funzione densità di carica}
+		{Utilizzando le equazioni di continuità è possibile riscrivere l'equazione di neutralità $ \rho (x,t) = q(p_{n}-n_{n}+N_{D}) $}
+		{arg3}
+		{arg4}
+		
+		
+		\eqlist{Equazione di Poisson}
+		{Questa relazione permette di trovare il campo elettrico e il potenziale in dipendenza dalla densità di carica e la permeabilità del semiconduttore.}
+		{\pdv{\Phi(x)}{2}{x} = -\frac{\rho(x)}{\varepsilon_{s}}}
+		{$\Phi(x)$ = Potenziale elettrico \\ $\varepsilon_{s}=\varepsilon_{r} \varepsilon_{0} \; \; \text{con} \;\; \varepsilon_{r} \barSi $ }
+	
+	
+	\subsection{Semiconduttori illuminati}
+		Nel caso in cui un semiconduttore venga illuminato con una radiazione elettromagnetica che abbia un'energia sufficiente a creare una coppia elettrone-lacuna, all'interno del materiale si creerà un gradiente di diffusione.
+		
+		\subsubsection{Semiconduttore di tipo \textbf{n} in condizioni di equilibrio}
+		
+		$\begin{cases}
+			\pdv{p(x,t)}{}{t} = - \frac{1}{q} \pdv{J_{p}}{}{x} - U_{p}  \\ 
+			J_{p} = J_{pDIFF}+J_{pDRIFT} \\
+			U_{p}=\frac{p_{n}'}{\Tau_{p}} \\
+			D_{p}=\frac{KT}{q} \mu_{p} \\
+		\end{cases}$
+
+	\subsection{Giunzione p - n }
+		
+		\subsubsection{Ragionamenti preliminari}
+		Prendendo in considerazione un pezzo di semiconduttore in cui in una porzione di volume limitata è avvenuta una compensazione dei droganti si possono fare alcune considerazioni.
+		
+		All'interno della giunzione, al momento del contatto tra il semiconduttore drogato di tipo n e di tipo p, si creano due correnti: \\
+		Una dovuta al generarsi di un gradiente di concentrazione e un'altra dovuta alla mancata compensazione delle impurità droganti.
+		
+		All'equilibrio termodinamico, ovvero a condizioni di regime, la densità di corrente attraverso la giunzione dovrà però essere nulla.
+		Quindi sviluppando la relazione che permette di trovare la densità di carica e uguagliandola a zero si ottiene che $ \frac{dE_{F}}{dt} = 0 $ ovvero, che il livello dell'energia di Fermi è costante.
+		
+		\subsubsection{All'equilibrio}
+		\eqlist{Densità di carica}
+		{Ipotizzando di avere una compensazione netta, nel semiconduttore si creerà una densità di carica così disposta}
+		{\rho(x) = \begin{cases} 
+				0 & \mbox{if}\; x \leq -x_{p} \\
+				\rho_{1} &\mbox{if}\; -x_{p} < x < 0 \\
+				\rho_{2} &\mbox{if}\; 0 < x < x_{n} \\
+				0 &\mbox{if} x \geq x_{n} \end{cases}}
+	 	{}
+		
+		\eqlist{Campo elettrico}
+		{Sfruttando l'equazione di Poisson, integrando la densità di carica è possibile determinare il campo elettrico in funzione della posizione}
+		{\Beps(x) = \begin{cases} 
+				0 & \mbox{if}\; x \leq x_{p} \\
+				-\frac{\rho_{1}}{\varepsilon_{s}}(x_{p}+x) & \mbox{if}\; -x_{p} < x < 0 \\
+				-\frac{\rho_{1}}{\varepsilon_{s}} x_{p}+ \frac{\rho_{2}}{\varepsilon_{s}}x & \mbox{if}\; 0 < x < x_{n} \\ 
+				 0 &\mbox{if}\; x \geq x_{n} \end{cases}}
+		{}
+		
+		\eqlist{Campo elettrico}
+		{Integrando nuovamente l'equazione di Poisson è possibile trovare la differenza di potenziale tra le varie sezioni del semiconduttore}
+		{\Phi(x) = \begin{cases} 
+				0 & \mbox{if}\; x \leq x_{p} \\
+				\Phi(-x_{p})+ \frac{\rho_{1}}{2\varepsilon_{s}}(x_{n}+x)^{2} & \mbox{if}\; x_{p} < x <0 \\
+				+\frac{\rho_{1}}{2\varepsilon_{s}}x_{p}^{2} + \frac{\rho_{1}}{\varepsilon_{s}}x_{p}x - \frac{\rho_{2}}{2\varepsilon_{s}}x^{2} & \mbox{if}\;  0< x < x_{n} \\
+				+\frac{\rho_{1}}{2\varepsilon_{s}}x_{p}^{2} + \frac{\rho_{1}}{2\varepsilon_{s}}x_{n}^{2} & \mbox{if}\; x \geq x_{n} \end{cases}}
+		{}
+		\subsubsection{Analisi elettrostatica della giunzione}
+		
+		\eqlist{Energia di barriera}
+		{Si  può calcolare l'energia di barriera all'interno di una giunzione p-n eguagliandola alla differenza tra l'energia di estrazione $ q \Phi S_{p} $ e $ q \Phi S_{n}  $}
+		{q\Phi_{i} =  q \Phi S_{p} -q \Phi S_{n}  = KT \, ln\Big(\frac{N_{A}N_{D}}{n_{i}^{2}}\Big)}
+		{}
+		
+		\eqlist{Zona di svuotamento}
+		{Per comodità si definisce una lunghezza che rappresenta tutta la porzione di semiconduttore privo di portatori}
+		{x_{d} = x_{n} + x_{p}}
+		{}
+		
+		\eqlist{Relazione delle zone di svuotamento}
+		{Integrando le distribuzioni di carica si può ottenere una legge di neutralità generale}
+		{q N_{A} x_{p} = q N_{D} x_{n}}
+		{}
+		
+		\eqlist{Zona di svuotamento 2.0}
+		{Utilizzo le relazioni (59) e (57) per riscrivere la formula (58) }
+		{x_{d} = \sqrt{\frac{2 \varepsilon_{s}}{q N_{EQ}} \Phi_{i}}}
+		{Con $ N_{EQ} = \frac{N_{A} N_{D}}{N_{A} + N_{D}} $}
+		
+		\deqlist{$ X_{n} $ e $ X_{p} $ }
+		{Utilizzando la relazione precedente similmente ad un partitore di tensione mi ricavo le misure delle zone di svuotamento }
+		{x_{n} = \frac{N_{D}}{N_{A} + N_{D}} x_{d}}
+		{x_{p} = \frac{N_{A}}{N_{A} + N_{D}} x_{d}}
+		{}
+		
+		\subsubsection{Giunzione Polarizzata}
+		Una giunzione può essere polarizzata in due modi, ovvero applicando una tensione positiva con il morsetto collegato alla parte drogata di tipo p e applicando una tensione negativa.
+		Nel caso in cui la tensione $ V_{a} $ sia positiva si ha una polarizzazione diretta e la barriera $ q\Phi_{i} $ sarà più bassa, mentre se si applica una tensione negativa, si ha una polarizzazione inversa che innalza la barriera di potenziale interno.
+		
+		\eqlist{Tensione in una giunzione polarizzata}
+		{Per semplificare la notazione si definisce la tensione risultante allìinterno del semiconduttore come}
+		{V_{J} =\Phi_{i} -V_{a}}
+		{Tutte le relazioni trovate per la giunzione all'equilibrio possono essere riscritte sfruttando questa relazione}
+		
+		\eqlist{Capacità di un a giunzione}
+		{Essendo che all'interno di una giunzione nella zona di svuotamento si vengono a creare due cariche dovute agli ioni di drogaggio, allora si può in un certo senso analizzare una giunzione anche come un condensatore con capacità variabi}
+		{C_{DEP} = \sqrt{\frac{q \varepsilon_{s} N_{EQ}}{2 V_{J}}}}
+		{arg4}
+		
+\end{document}
