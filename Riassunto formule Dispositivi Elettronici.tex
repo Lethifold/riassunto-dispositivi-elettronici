@@ -279,25 +279,46 @@
 		\begin{equation}
 		\pdv{p_{n}(x,t)}{2}{t} = p_{n} \mu_{p}  \pdv{\Beps}{2}{x} + \mu_{p} \Beps \pdv{p_{n}}{2}{x} + D_{p} \pdv{p_{n}}{2}{x} + G_{p} -\frac{p_{n}'}{\Tau_{p}}
 		\end{equation}
-		
-		
-		
-		
-		\eqlist{Funzione densità di carica}
-		{Utilizzando le equazioni di continuità è possibile riscrivere l'equazione di neutralità $ \rho (x,t) = q(p_{n}-n_{n}+N_{D}) $}
-		{arg3}
-		{arg4}
-		
-		
+
+
 		\eqlist{Equazione di Poisson}
 		{Questa relazione permette di trovare il campo elettrico e il potenziale in dipendenza dalla densità di carica e la permeabilità del semiconduttore.}
 		{\pdv{\Phi(x)}{2}{x} = -\frac{\rho(x)}{\varepsilon_{s}}}
 		{$\Phi(x)$ = Potenziale elettrico \\ $\varepsilon_{s}=\varepsilon_{r} \varepsilon_{0} \; \; \text{con} \;\; \varepsilon_{r} \barSi $ }
-	
+	   
+       Il modello matematico in condizioni stazionarie e di quasi quasi neutralità può essere riscritto con la seguente formulazione 
+       \deqlist{Per i minoritari}{}
+       {\pdv{n_{p}'(x)}{2}{x} = \frac{n_{p}'(x)}{\Tau_{n}}}
+       {\pdv{p_{n}'(x)}{2}{x} = \frac{p_{n}'(x)}{\Tau_{p}}}
+       {per i maggioritari si ottengono due formule analoghe}
 	
 	\subsection{Semiconduttori illuminati}
 		Nel caso in cui un semiconduttore venga illuminato con una radiazione elettromagnetica che abbia un'energia sufficiente a creare una coppia elettrone-lacuna, all'interno del materiale si creerà un gradiente di diffusione.
-		
+		\subsubsection{Bassa iniezione}
+            Nel caso più specifico in cui la radiazione generi otticamente una quantità di lacune e elettroni di molto  inferiore alla quantità di portatori maggioritari già presenti all'interno del semiconduttore allora si ragionerà principalmente sull'ammontare di minoritari in eccesso a causa della generazione ottica. 
+            Se le condizioni al contorno sono di quasi neutralità e di stazionarietà, allora è possibile, trovando gli autovalori dell'equazione differenziale, determinare la lunghezza di diffusione, ovvero:
+            \[ L_{p} = \frac{1}{\sqrt{D_{p} \Tau_{p}}} \;\; \textit{Nel caso in cui i minoritari siano le lacune} \]
+            \[ L_{n} = \frac{1}{\sqrt{D_{n} \Tau_{n}}} \;\; \textit{Nel caso in cui i minoritari siano gli elettroni} \]
+            \paragraph{Semiconduttore lungo}
+            Si denota con semiconduttore lungo, un semiconduttore che abbia una lunghezza maggiore della lunghezza di diffusione precedentemente calcolata.
+            in questo caso se si risolve il modello matematico semplificato dalle due condizioni (quasi neutralità e stazionarietà) si ottengono le seguenti relazioni:
+            \deqlist{}{}
+            {n_{p}'(x) = n_{p}'(0) \ e^{-\frac{x}{L_{n}}}}
+            { p_{n}'(x) = p_{n}'(0) \ e^{-\frac{x}{L_{p}}}}
+            {}
+            
+            Nel caso in cui si abbia un semiconduttore le cui dimensioni siano paragonabili alla lunghezza di diffusione, allora una delle condizioni utilizzate per risolvere l'equazione differenziale del caso precedente, ovvero che le concentrazioni dei minoritari si sarebbero annullate alla faccia del lato opposto, non può più essere applicata, quindi si immagina di metallizzare la faccia d'arrivo per poter riutilizzare le equazioni del caso precedente. con questo ragionamento si ottengono le due seguenti relazioni:
+            \deqlist{}{}
+            { n_{p}'(x) = n_{p}'(0) \frac{sinh(\frac{L-x}{L_{n}})}{sinh(\frac{L}{L_{n}})} }
+            { p_{n}'(x) = p_{n}'(0) \frac{sinh(\frac{L-x}{L_{p}})}{sinh(\frac{L}{L_{p}})} }
+            {}
+            
+            \paragraph{Semiconduttore corto}
+            Analogamente si può ragionare nel caso in cui il semiconduttore non abbia dimensioni più grandi della lunghezza di diffusione, bensì sia più corto. In questo caso si può approssimare l'argomento del seno iperbolico con il suo argomento.
+            \deqlist{}{}
+            { n_{p}'(x) = n_{p}'(0)(1-\frac{x}{L}) }
+            { p_{n}'(x) = p_{n}'(0)(1-\frac{x}{L}) }
+            {}
 		\subsubsection{Semiconduttore di tipo \textbf{n} in condizioni di equilibrio}
 		
 		$\begin{cases}
